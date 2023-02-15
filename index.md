@@ -26,12 +26,13 @@ schema:
     body: 
       type: object 
       description: Http body.
-script: 
-  x = curl $headers.map("-H _ \")
-        -X "$method" \
-        -d "$body" \
-        $url  
-  cat $x
+script: |
+  return `curl -X ${method} \\
+  ${Object.entries(headers)
+            .map(([k, v]) => `     -H "${k}: ${v}"`)
+            .join(' \\\n')} \\
+     -d '${JSON.stringify(body)}' \\
+     ${url}/${method}`
 ```
 
 Awesome job!
