@@ -1,48 +1,18 @@
----
-title: Stakfile
-requirements:
-  - command: curl
----
+# What is Stakz?
 
-# Http Client
+Ever been browsing some documentation with several copy paste steps?
 
-// TODO -
+Ever wish building a basic form felt more like a python notebook and less like
+importing an airplane to get a chair? (Seriously why do we need to know the latest Javascript framework
+just to do something simple!?)
 
-First we are going to use Stakz to create a form to make a web request client.
+Wish embedding widgets into documentation was as simple as:
 
-<field label="url" description="Url to send the request to">url</field>
-<field label="method" description="Http method">GET</field>
-<json label=body description="Body of the request">
-{
-"hello": {
-"world": "hello!"
-}
-}
-</json>
+`<field label="hello" description="this binds to the hello variable">World</field>`
+<field label="hello" description="this binds to the hello variable">World</field>
 
-```Stakz.yaml
-schema:
-  type: object
-  properties:
-    url:
-      type: string
-      default: http://postman-echo.com
-    method:
-      enum: ["GET", "POST", "PUT", "PATCH", "DELETE"]
-      description: The http verb
-    headers:
-      type: object
-      description: Http headers
-    body:
-      type: object
-      description: Http body.
-script: |
-  return `curl -X ${method} \\
-  ${Object.entries(headers)
-            .map(([k, v]) => `     -H "${k}: ${v}"`)
-            .join(' \\\n')} \\
-     -d '${JSON.stringify(body)}' \\
-     ${url}/${method}`
-```
+...and that using that variable in a script was as simple as:
 
-Awesome job!
+
+`<script> return "echo " + hello </script>`
+<script> return "echo " + hello </script>
