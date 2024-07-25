@@ -11,9 +11,9 @@ Authorization: Example Token
 </yaml>
 <json label=body description="Body of the request">
 {
-"hello": {
-"world": "hello!"
-}
+    "hello": {
+        "world": "hello!"
+    }
 }
 </json>
 
