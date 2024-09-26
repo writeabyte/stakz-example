@@ -1,7 +1,7 @@
 # What is Stakz?
 
-Stakz is an AI tutorial platform that helps you and execute CLI
-commands, html snippets, and more.
+**Stakz is an AI tutorial platform that helps you generate and share automation tutorials.**
+Tutorials can be published on github and will be available at stakz.dev/browse/{org}/{repo}/path_to_file.
 
 ## How does it work?
 
@@ -22,9 +22,7 @@ Here is a sample data widget:
 #### Script Widgets 
 A script widget uses the values entered into data widgets and turns them into a shell command. Evaluating the script widget does not occur until the user clicks the execute button where the content of the result of the script will be copied to the clipboard. 
 
-**Be sure to read script widgets as they are executing generated javascript in your browser**
-
-
+**Be sure to read script widget before execution to ensure security**
 
 <script> return "echo " + hello </script>
 `<script> return "echo " + hello </script>`
@@ -46,8 +44,4 @@ And it's true that browsers provide numerous layers of security designed to isol
 1. Stakz Server is running with the --execute flag explicitly enabled. Without the --execute flag, the server is a basic file server.
 2. The anonymous token generated when starting the stakz server matches the token specified in the terminal window (also required for saving files).
 
-
-
-
-
-
+It is also recommended to only run stakz-server via the docker container. This will provide a layer of isolation between the commands being run and your local computer.
