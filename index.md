@@ -6,7 +6,9 @@ commands, html snippets, and more.
 ## How does it work?
 
 Stakz implements a custom markdown parser that allows widgets to be
-embedded in markdown. There are two main types of widgets: data and script.
+embedded in markdown. Pretty neat huh?
+
+There are two main types of widgets: data and script.
 
 #### Data Widgets
 
@@ -18,9 +20,34 @@ Here is a sample data widget:
 `<field label="hello" description="this binds to the hello variable">World</field>`
 
 #### Script Widgets 
-A script widget uses the values entered into data widgets, and turns them into a shell command. The script widget is not executed until the user clicks the button to prevent XSS attacks.
+A script widget uses the values entered into data widgets and turns them into a shell command. Evaluating the script widget does not occur until the user clicks the execute button where the content of the result of the script will be copied to the clipboard. 
+
+**Be sure to read script widgets as they are executing generated javascript in your browser**
+
+
+
 <script> return "echo " + hello </script>
 `<script> return "echo " + hello </script>`
 
-...and that using that variable in a script was as simple as:
+## Running the Script 
+There are two ways of running the script: pasting the command into a locally running terminal, or using the browser terminal along with a local stakz server.
+
+## [Stakz Server](https://github.com/curtismj1/stakz-server)
+
+The stakz server is the bridge between staz.dev and your local machine. The stakz server has two primary purposes: Persisting tutorial files and **optionally** executing commands from stakz.dev on your local machine.
+
+Wait, the server just executes commands locally?
+By now, you should be going
+
+🚩🚩🚩**Sounds like a bad idea - Batman**🚩🚩🚩 (is this addressing Batman, or spoken by Batman? Either way...)
+
+And it's true that browsers provide numerous layers of security designed to isolate someones local machine from any kind of remote code execution. Therefore stakz server will only execute commands when the following criteria are met.
+
+1. Stakz Server is running with the --execute flag explicitly enabled. Without the --execute flag, the server is a basic file server.
+2. The anonymous token generated when starting the stakz server matches the token specified in the terminal window (also required for saving files).
+
+
+
+
+
 
