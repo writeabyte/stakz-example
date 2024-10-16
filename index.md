@@ -47,4 +47,4 @@ And it's true that browsers provide numerous layers of security designed to isol
 1. Stakz Server is running with the --execute flag explicitly enabled. Without the --execute flag, the server is a basic file server.
 2. The anonymous token generated when starting the stakz server matches the token specified in the terminal window (also required for saving files).
 
-It is also recommended to only run stakz-server via the docker container. This will provide a layer of isolation between the commands being run and your local computer.
+Stakz-server may also be run via the docker container to provide a layer of isolation between the commands being run and your local computer.
