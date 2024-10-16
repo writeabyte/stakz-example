@@ -19,15 +19,18 @@ Here is a sample data widget:
 <field label="hello" description="this binds to the hello variable">World</field>
 `<field label="hello" description="this binds to the hello variable">World</field>`
 
-#### Script Widgets 
-A script widget uses the values entered into data widgets and turns them into a shell command. Evaluating the script widget does not occur until the user clicks the execute button where the content of the result of the script will be copied to the clipboard. 
+#### Script Widgets
 
-**Be sure to read script widget before execution to ensure security**
+A script widget uses the values entered into data widgets and turns them into a shell command. Evaluating the script widget does not occur until the user clicks the execute button where the content of the result of the script will be copied to the clipboard.
+
+**Be sure to read script widgets before execution to ensure security**
 
 <script> return "echo " + hello </script>
+
 `<script> return "echo " + hello </script>`
 
-## Running the Script 
+## Running the Script
+
 There are two ways of running the script: pasting the command into a locally running terminal, or using the browser terminal along with a local stakz server.
 
 ## [Stakz Server](https://github.com/curtismj1/stakz-server)

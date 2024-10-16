@@ -21,7 +21,7 @@ Next, you should upload your static HTML files to the S3 bucket. You can use the
 ## Step 4
 You must set the bucket policy to make your S3 bucket public so that your site can be accessed by visitors.
 
-<yaml label="bucketPolicy" description="Enter your S3 bucket new policy">
+<json label="bucketPolicy" description="Enter your S3 bucket new policy">
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -34,7 +34,7 @@ You must set the bucket policy to make your S3 bucket public so that your site c
     }
   ]
 }
-</yaml>
+</json>
 
 ## Step 5
 Once your S3 bucket is set up, the next step is to configure Route 53 to manage your domain name. You will need to create a hosted zone in Route 53.
@@ -54,7 +54,7 @@ Now that you've entered all the required information, here is the bash script th
 aws s3api create-bucket --bucket ${bucketName} --region us-east-1 --create-bucket-configuration LocationConstraint=us-east-1  
 aws s3 website s3://${bucketName} --index-document ${indexDocument} --error-document ${errorDocument}  
 aws s3 cp ${localFilePath} s3://${bucketName}/ --recursive  
-aws s3api put-bucket-policy --bucket ${bucketName} --policy '${bucketPolicy}'  
+aws s3api put-bucket-policy --bucket ${bucketName} --policy '${JSON.stringify(bucketPolicy)}'  
 aws route53 create-hosted-zone --name ${domainName} --caller-reference "my-zone-ref"  
 aws route53 change-resource-record-sets --hosted-zone-id <your-hosted-zone-id> --change-batch '  
 {  
