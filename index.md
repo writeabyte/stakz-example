@@ -33,7 +33,7 @@ A script widget uses the values entered into data widgets and turns them into a 
 
 There are two ways of running the script: pasting the command into a locally running terminal, or using the browser terminal along with a local stakz server.
 
-## [Stakz Server](https://github.com/curtismj1/stakz-server)
+## [Stakz Server](https://github.com/writeabyte/stakz-server)
 
 The stakz server is the bridge between staz.dev and your local machine. The stakz server has two primary purposes: Persisting tutorial files and **optionally** executing commands from stakz.dev on your local machine.
 
