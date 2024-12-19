@@ -1,0 +1,8 @@
+url: http://localhost:3001/echo
+method: GET
+headers:
+  Content-Type: application/json
+  Authorization: Example Token
+body:
+  hello:
+    world: hello!

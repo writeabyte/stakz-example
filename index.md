@@ -33,18 +33,35 @@ A script widget uses the values entered into data widgets and turns them into a 
 
 There are two ways of running the script: pasting the command into a locally running terminal, or using the browser terminal along with a local stakz server.
 
-## [Stakz Server](https://github.com/writeabyte/stakz-server)
+## Stakz Server
 
-The stakz server is the bridge between staz.dev and your local machine. The stakz server has two primary purposes: Persisting tutorial files and **optionally** executing commands from stakz.dev on your local machine.
+### Installation
+
+The [stakz server](https://github.com/writeabyte/stakz-server) is the bridge between staz.dev and your local machine. 
+
+To install with homebrew, run
+
+```
+brew install writeabyte/stakz/stakz
+```
+or see the [releases page](https://github.com/writeabyte/stakz-server/releases) to download the latest release for your platform
+
+### About
+
+The stakz server has two primary purposes: Persisting tutorial files and **optionally** executing commands from stakz.dev on your local machine.
 
 Wait, the server just executes commands locally?
 By now, you should be going
 
-🚩🚩🚩**Sounds like a bad idea - Batman**🚩🚩🚩 (is this addressing Batman, or spoken by Batman? Either way...)
+🚩🚩🚩 **Sounds like a bad idea - Batman** 🚩🚩🚩 (is this addressing Batman, or spoken by Batman? Either way...)
 
-And it's true that browsers provide numerous layers of security designed to isolate someones local machine from any kind of remote code execution. Therefore stakz server will only execute commands when the following criteria are met.
+And it's true that browsers provide numerous layers of security designed to isolate someone's local machine from any kind of remote code execution. Therefore stakz server will only execute commands when the following criteria are met.
 
 1. Stakz Server is running with the --execute flag explicitly enabled. Without the --execute flag, the server is a basic file server.
-2. The anonymous token generated when starting the stakz server matches the token specified in the terminal window (also required for saving files).
+2. The key specified when starting the stakz server matches the key specified in the stakz.dev terminal window (also required for saving files). 
 
 Stakz-server may also be run via the docker container to provide a layer of isolation between the commands being run and your local computer.
+
+```
+docker
+```
