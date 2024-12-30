@@ -63,5 +63,8 @@ And it's true that browsers provide numerous layers of security designed to isol
 Stakz-server may also be run via the docker container to provide a layer of isolation between the commands being run and your local computer.
 
 ```
-docker
+mkdir -p stakz \
+ && docker run -p 3001:3001 \
+--mount type=bind,source=./stakz,target=/app/stakz-example \
+--name stakz-server curtismj1/stakz --execute
 ```
